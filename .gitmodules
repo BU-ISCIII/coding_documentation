@@ -1,7 +1,3 @@
-[submodule "oh-my-zsh"]
-	path = .oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-
 [submodule "gruvbox"]
 	path = .vim/bundle/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
@@ -17,3 +13,6 @@
 [submodule "python-syntax"]
 	path = .vim/bundle/python-syntax
 	url = https://github.com/hdima/python-syntax.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
