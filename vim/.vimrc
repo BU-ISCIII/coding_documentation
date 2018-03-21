@@ -216,9 +216,7 @@ set spelllang=en_us,en_gb
 " Syntax highlighting.
 syntax on
 
-" Color scheme (my own scheme based on the standard 'koehler' color scheme).
-" Thanks to the CSApprox plugin, I can use the same scheme in both the
-" graphical and terminal Vims.
+" Color scheme Gruvbox
 set term=screen-256color
 colorscheme gruvbox
 set bg=dark
@@ -237,7 +235,7 @@ nnoremap <silent> <F1> :set spell!<CR>:set spell?<CR>
 " F2: Toggle the display of unprintable characters.
 nnoremap <silent> <F2> :set list!<CR>:set list?<CR>
 
-" Shift+F2: Toggle the display of colorcolumn.
+" ,F2: Toggle the display of colorcolumn.
 function! s:ToggleColorColumn()
 	if &colorcolumn > 0
 		set colorcolumn=""
@@ -247,13 +245,13 @@ function! s:ToggleColorColumn()
 		set colorcolumn=80
 	endif
 endfunction
-nnoremap <silent> <S-F2> :call <SID>ToggleColorColumn()<CR>
+nnoremap <silent> <leader><F2> :call <SID>ToggleColorColumn()<CR>
 
 " F3: Toggle line wrapping.
 nnoremap <silent> <F3> :set nowrap!<CR>:set nowrap?<CR>
 
 " Shift+F3: Toggle relative/absolute numbers.
-nnoremap <silent> <S-F3> :set relativenumber!<CR>:set relativenumber?<CR>
+nnoremap <silent> <leader><F3> :set relativenumber!<CR>:set relativenumber?<CR>
 
 "------------------------------------------------------------------------------
 " Abbreviations and other mappings.
@@ -383,8 +381,8 @@ au FileType c,cpp,java let b:comment_leader = '// '
 au FileType sh,make,python,perl,R let b:comment_leader = '# '
 au FileType tex let b:comment_leader = '% '
 
-noremap <silent> ,c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
-noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
+noremap <silent> <leader>c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
+noremap <silent> <leader>u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
 
 "------------------------------------------------------------------------------
@@ -462,8 +460,8 @@ au FileType python nnoremap <buffer> <Leader>im /^\(from\\|import\) <CR>:nohlsea
 " Let F9 run the currently opened tests.
 au FileType python nnoremap <buffer> <F9> :wa<CR>:!clear; nosetests %<CR>
 
-" Let Shift+F9 run all tests.
-au FileType python nnoremap <buffer> <S-F9> :wa<CR>:!clear; nosetests tests<CR>
+" Let ,F9 run all tests.
+au FileType python nnoremap <buffer> <leader><F9> :wa<CR>:!clear; nosetests tests<CR>
 
 " Let F10 run the currently opened script.
 au FileType python nnoremap <buffer> <F10> :w<CR>:!clear; python %<CR>
