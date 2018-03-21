@@ -1,18 +1,15 @@
-[submodule "gruvbox"]
-	path = .vim/bundle/gruvbox
+[submodule "vim/.vim/bundle/gruvbox"]
+	path = vim/.vim/bundle/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
-
-[submodule "nerdtree"]
-	path = .vim/bundle/nerdtree
+[submodule "vim/.vim/bundle/nerdtree"]
+	path = vim/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-
-[submodule "pydiction"]
-	path = .vim/bundle/pydiction
+[submodule "vim/.vim/bundle/pydiction"]
+	path = vim/.vim/bundle/pydiction
 	url = https://github.com/vim-scripts/Pydiction.git
-
-[submodule "python-syntax"]
-	path = .vim/bundle/python-syntax
+[submodule "vim/.vim/bundle/python-syntax"]
+	path = vim/.vim/bundle/python-syntax
 	url = https://github.com/hdima/python-syntax.git
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
+[submodule "zsh/.oh-my-zsh"]
+	path = zsh/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
