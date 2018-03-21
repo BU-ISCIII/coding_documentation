@@ -229,12 +229,6 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Highlight mixture of spaces and tabs.
-hi SpacesTabsMixture guifg=red guibg=gray19
-" Highlight mixtures only when there are at least two successive spaces to
-" prevent highlighting of false positives (e.g. in git diffs, which may begin
-" with a space).
-match SpacesTabsMixture /^  \+\t\+[\t ]*\|^\t\+  \+[\t ]*/
-
 "------------------------------------------------------------------------------
 " Function keys.
 "------------------------------------------------------------------------------
@@ -386,8 +380,9 @@ nnoremap <Leader>bib :tabe *.bib<CR>
 au FileType haskell,vhdl,ada let b:comment_leader = '-- '
 au FileType vim let b:comment_leader = '" '
 au FileType c,cpp,java let b:comment_leader = '// '
-au FileType sh,make,python,perl let b:comment_leader = '# '
+au FileType sh,make,python,perl,R let b:comment_leader = '# '
 au FileType tex let b:comment_leader = '% '
+
 noremap <silent> ,c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
