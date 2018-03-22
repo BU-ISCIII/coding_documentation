@@ -226,7 +226,10 @@ set bg=dark
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" Highlight mixture of spaces and tabs.
+" The leader and local-leader characters.
+let mapleader = ','
+let maplocalleader = ','
+
 "------------------------------------------------------------------------------
 " Function keys.
 "------------------------------------------------------------------------------
@@ -256,10 +259,6 @@ nnoremap <silent> <leader><F3> :set relativenumber!<CR>:set relativenumber?<CR>
 "------------------------------------------------------------------------------
 " Abbreviations and other mappings.
 "------------------------------------------------------------------------------
-
-" The leader and local-leader characters.
-let mapleader = ','
-let maplocalleader = ','
 
 " General command aliases.
 cnoreabbrev tn tabnew
@@ -318,7 +317,7 @@ endif
 " Swap the '<letter> and `<letter> functionality because the ' character is
 " more easily reachable than the ` character.
 nnoremap ' `
-noremap ` ' 
+noremap ` '
 
 " Join lines by <Leader>+j because I use J to go to the previous tab.
 noremap <Leader>j J
@@ -390,7 +389,7 @@ noremap <silent> <leader>u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/
 "------------------------------------------------------------------------------
 
 "---------------------------------------
-" NERDTree settings 
+" NERDTree settings
 "---------------------------------------
 nnoremap <leader>n :NERDTree<CR>
 nnoremap <leader>m NERDTreeFocus<CR>
