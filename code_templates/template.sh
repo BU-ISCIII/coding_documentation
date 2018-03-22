@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Exit immediately if a pipeline, which may consist of a single simple command, a list, 
+# Exit immediately if a pipeline, which may consist of a single simple command, a list,
 #or a compound command returns a non-zero status: If errors are not handled by user
 set -e
 
@@ -69,14 +69,14 @@ fi
 
 #DECLARE FLAGS AND VARIABLES
 threads=1
-
+rflag=0		# Flag for mandatory options
 
 #PARSE VARIABLE ARGUMENTS WITH getops
 #common example with letters, for long options check longopts2getopts.sh
 while getopts ":i:o:vh" opt; do
 	case $opt in
 		i )
-			input_dir=$OPTARG
+			rflag=$(($rflag+1));input_dir=$OPTARG
 			;;
 		o )
 			output_dir=$OPTARG
@@ -95,8 +95,9 @@ while getopts ":i:o:vh" opt; do
       		;;
 		v )
 		  echo $VERSION
+		  exit 1
 		  ;;
-		\?)  
+		\?)
 			echo "Invalid Option: -$OPTARG" 1>&2
 			usage
 			exit 1
@@ -105,7 +106,7 @@ while getopts ":i:o:vh" opt; do
       		echo "Option -$OPTARG requires an argument." >&2
       		exit 1
       		;;
-      	* ) 
+      	* )
 			echo "Unimplemented option: -$OPTARG" >&2;
 			exit 1
 			;;
@@ -113,11 +114,21 @@ while getopts ":i:o:vh" opt; do
 done
 shift $((OPTIND-1))
 
+# Check mandatory options. Change number to number of mandatory fields.
+if [ $rflag != 1 ]
+then
+    echo "Error: -i option must be set" >&2
+    exit 1
+fi
 
+#================================================================
+# FUNCTIONS
+#================================================================
 
 #CHECK DEPENDENCIES
 #This function check all dependencies listed and exits if any is missing
 check_dependencies() {
+	echo "- Checking dependencies...."
 	missing_dependencies=0
 	for command in "$@"; do
 		if ! [ -x "$(which $command 2> /dev/null)" ]; then
@@ -128,9 +139,11 @@ check_dependencies() {
 		fi
 	done
 
-	if [ $missing_dependencies -gt 0 ]; then 
+	if [ $missing_dependencies -gt 0 ]; then
 		echo "$missing_dependencies missing dependencies, aborting execution" >&2
 		exit 1
+	else
+		echo "Finish checking dependencies. "
 	fi
 }
 

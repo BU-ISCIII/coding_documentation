@@ -70,7 +70,7 @@ rflag=0	            # boolean for mandatory options
 
 update=false        # boolean update installation
 uninstall=false     # boolean uninstall files
-                                          
+
 user=""             # username for home path install
 
 
@@ -113,7 +113,7 @@ done
 shift $((OPTIND-1))
 
 # Check mandatory options
-if [ $rflag != 1 ] 
+if [ $rflag != 1 ]
 then
     echo "Error: -U option must be set" >&2
     exit 1
@@ -143,7 +143,7 @@ check_dependencies() {
                 exit 1
 	else
 		echo "Finish checking dependencies. "
-        fi
+    fi
 }
 
 
@@ -177,9 +177,9 @@ uninstall() {
 		rm -rf /home/$user/.vim
 
        		echo "Uninstalling zsh and oh-my-zsh config files for user $user"
-        	rm -rf /home/$user/.oh-my-zsh 
-        	rm -f /home/$user/.zshrc 
-	fi 
+        	rm -rf /home/$user/.oh-my-zsh
+        	rm -f /home/$user/.zshrc
+	fi
 }
 
 update() {
