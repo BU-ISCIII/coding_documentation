@@ -49,11 +49,9 @@ ZSH_THEME="cleanCustom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git django git-flow)
 
 # User configuration
-
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -78,9 +76,16 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias obelix_sshfs="sudo sshfs -o allow_other,default_permissions ##USER##@asterix.isciii.es:/processing_Data/bioinformatics /processing_Data/bioinformatics"
-alias obelix_connect="ssh ##USER##@asterix"
-source /etc/profile.d/extrapath.sh
+alias asterix_sshfs="sudo sshfs -o allow_other,default_permissions ##USER##@asterix.isciii.es:/processing_Data/bioinformatics /processing_Data/bioinformatics"
+alias asterix_connect="ssh ##USER##@asterix"
 
+# More custom aliases
+if [ -f /home/##USER/.aliases ];then
+	source /home/##USER##/.aliases
+fi
+# Source file with software paths
+if [ -f /etc/profile.d/extrapath.sh ];then
+	source /etc/profile.d/extrapath.sh
+fi
 # OPAM configuration
 . /home/##USER##/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

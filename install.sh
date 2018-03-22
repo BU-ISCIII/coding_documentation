@@ -157,7 +157,7 @@ install() {
         cp ./zsh/.zshrc /home/$user
 
         echo "Copying custom theme to custom folder in .oh-my-zsh"
-        cp ./zsh/custom_themes/cleanCustom-theme /home/$user/.oh-my-zsh/custom
+        cp ./zsh/custom_themes/cleanCustom.zsh-theme /home/$user/.oh-my-zsh/custom
 
         echo "Changing username in config files"
         sed -i "s/##USER##/$user/g" /home/$user/.zshrc
