@@ -420,7 +420,7 @@ let g:python_print_as_function=1
 " Pydiction
 "-----------------------------------------
 
-let g:pydiction_location = '/home/smonzon/.vim/bundle/pydiction/complete-dict'
+let g:pydiction_location = '/home/##USER##/.vim/bundle/pydiction/complete-dict'
 
 
 "------------------------------------------------------------------------------

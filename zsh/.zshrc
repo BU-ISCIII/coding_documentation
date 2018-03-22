@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/smonzon/.oh-my-zsh
+  export ZSH=/home/##USER##/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -78,9 +78,9 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias obelix_sshfs="sudo sshfs -o allow_other,default_permissions smonzon@asterix.isciii.es:/processing_Data/bioinformatics /processing_Data/bioinformatics"
-alias obelix_connect="ssh smonzon@asterix"
+alias obelix_sshfs="sudo sshfs -o allow_other,default_permissions ##USER##@asterix.isciii.es:/processing_Data/bioinformatics /processing_Data/bioinformatics"
+alias obelix_connect="ssh ##USER##@asterix"
 source /etc/profile.d/extrapath.sh
 
 # OPAM configuration
-. /home/smonzon/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+. /home/##USER##/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
