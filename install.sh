@@ -44,13 +44,14 @@ usage() {
         cat << EOF
 Dot files installation: Zsh and vim config
 
-usage : $0 [-v] [-h] [-u]
-                              -r update repositories and local files
+usage : $0 [-v] [-h] [-u] [-r] [-U]
+        -r update repositories and local files
         -u uninstall files
         -U username for home path
         -* options
         -v version
         -h display usage message
+
 EOF
 
 }
