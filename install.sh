@@ -204,7 +204,14 @@ update() {
 # MAIN_BODY
 #================================================================
 
-check_dependencies zsh vimx
+if [ -f $FILE ]; then
+   echo "CentOS system detected, looking for vimx installation instead of vim"
+   check_dependencies zsh vimx
+else
+   echo "Not a CentOS system detected, assumming vim installation supports extras in your system"
+   check_dependencies zsh vim
+fi
+	
 
 if [ $uninstall = true ]; then
         uninstall
