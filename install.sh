@@ -204,7 +204,7 @@ update() {
 # MAIN_BODY
 #================================================================
 
-if [ -f $FILE ]; then
+if [ -f /etc/centos-release ]; then
    echo "CentOS system detected, looking for vimx installation instead of vim"
    check_dependencies zsh vimx
 else
