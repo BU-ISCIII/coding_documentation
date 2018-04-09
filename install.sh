@@ -20,11 +20,12 @@
 #AUTHOR:
 VERSION=1.0 #Version is set in order to be called with -v parameter
 #CREATED: 21 March 2018
-#REVISION:
+#REVISION: 9 April 2018
 #DESCRIPTION:Script for installing custom dot files.
 #Features installed:
 #   * Dependency check.
 #   * Vim configuration, .vimrc and .vim
+#   * Tmux configuration
 #   * Oh-my-zsh configuration: .zshrc and .oh-my-zsh with custom theme
 
 #================================================================
@@ -150,15 +151,18 @@ check_dependencies() {
 
 install() {
         echo "Installing vim config files"
-        cp -r ./vim/.vim /home/$user/
-        cp ./vim/.vimrc /home/$user/
+        /bin/cp -r ./vim/.vim /home/$user/
+        /bin/cp ./vim/.vimrc /home/$user/
+
+        echo "Installing tmux config files"
+        /bin/cp ./tmux/.tmux.conf /home/$user/
 
         echo "Installing zsh and oh-my-zsh config files"
-        cp -r ./zsh/.oh-my-zsh /home/$user/
-        cp ./zsh/.zshrc /home/$user
+        /bin/cp -r ./zsh/.oh-my-zsh /home/$user/
+        /bin/cp ./zsh/.zshrc /home/$user
 
         echo "Copying custom theme to custom folder in .oh-my-zsh"
-        cp ./zsh/custom_themes/cleanCustom.zsh-theme /home/$user/.oh-my-zsh/custom
+        /bin/cp ./zsh/custom_themes/cleanCustom.zsh-theme /home/$user/.oh-my-zsh/custom
 
         echo "Changing username in config files"
         sed -i "s/##USER##/$user/g" /home/$user/.zshrc
@@ -174,26 +178,32 @@ uninstall() {
 	if [[ $REPLY =~ ^[Yy]$ ]]
 	then
 		echo "Uninstalling vim config files for user $user"
-        	rm -f /home/$user/.vimrc
+        rm -f /home/$user/.vimrc
 		rm -rf /home/$user/.vim
 
-       		echo "Uninstalling zsh and oh-my-zsh config files for user $user"
-        	rm -rf /home/$user/.oh-my-zsh
-        	rm -f /home/$user/.zshrc
+		echo "Uninstalling tmux config files for user $user"
+        rm -f /home/$user/.tmux.conf
+
+       	echo "Uninstalling zsh and oh-my-zsh config files for user $user"
+        rm -rf /home/$user/.oh-my-zsh
+        rm -f /home/$user/.zshrc
 	fi
 }
 
 update() {
         echo "Updating vim config files"
-        cp -r ./vim/.vim /home/$user/
-        cp ./vim/.vimrc /home/$user/
+        /bin/cp -r ./vim/.vim /home/$user/
+        /bin/cp ./vim/.vimrc /home/$user/
+
+        echo "Updating vim config files"
+        /bin/cp ./tmux/.tmux.conf /home/$user/
 
         echo "Updating zsh and oh-my-zsh config files"
-        cp -r ./zsh/.oh-my-zsh /home/$user/
-        cp ./zsh/.zshrc /home/$user
+        /bin/cp -r ./zsh/.oh-my-zsh /home/$user/
+        /bin/cp ./zsh/.zshrc /home/$user
 
         echo "Copying custom theme to custom folder in .oh-my-zsh"
-        cp ./zsh/custom_themes/cleanCustom.zsh-theme /home/$user/.oh-my-zsh/custom
+        /bin/cp ./zsh/custom_themes/cleanCustom.zsh-theme /home/$user/.oh-my-zsh/custom
 
         echo "Changing username in config files"
         sed -i "s/##USER##/$user/g" /home/$user/.zshrc
@@ -206,12 +216,12 @@ update() {
 
 if [ -f /etc/centos-release ]; then
    echo "CentOS system detected, looking for vimx installation instead of vim"
-   check_dependencies zsh vimx
+   check_dependencies zsh vimx tmux
 else
    echo "Not a CentOS system detected, assumming vim installation supports extras in your system"
-   check_dependencies zsh vim
+   check_dependencies zsh vim tmux
 fi
-	
+
 
 if [ $uninstall = true ]; then
         uninstall
