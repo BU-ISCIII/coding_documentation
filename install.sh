@@ -156,6 +156,7 @@ install() {
 
         echo "Installing tmux config files"
         /bin/cp ./tmux/.tmux.conf /home/$user/
+		tmux source-file ~/.tmux.conf
 
         echo "Installing zsh and oh-my-zsh config files"
         /bin/cp -r ./zsh/.oh-my-zsh /home/$user/
@@ -197,6 +198,7 @@ update() {
 
         echo "Updating vim config files"
         /bin/cp ./tmux/.tmux.conf /home/$user/
+		tmux source-file ~/.tmux.conf
 
         echo "Updating zsh and oh-my-zsh config files"
         /bin/cp -r ./zsh/.oh-my-zsh /home/$user/
