@@ -1,9 +1,5 @@
 # Coding documentation repository
-This repository contains config files for vim, zsh, and template files for developing in BU-ISCIII
-
-Here we will establish some programming rules and some development configuration for BU-ISCIII as well as code templates for most common programming languages in the unit: Python, bash and R
-
-More information in the [wiki project](https://github.com/BU-ISCIII/dev_config_Files/wiki)
+This repository contains config files for vim, zsh, and tmux
 
 ## Install
 Dot files installation is very easy. First you have to clone the repository anywhere in your machine and init the submodules.
