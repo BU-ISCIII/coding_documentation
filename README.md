@@ -1,4 +1,4 @@
-# Coding documentation repository
+# Dotfiles repository
 This repository contains config files for vim, zsh, and tmux
 
 ## Install
