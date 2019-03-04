@@ -6,7 +6,7 @@ Dot files installation is very easy. First you have to clone the repository anyw
 
 ```Bash
 # Clone repository
-git clone git@github.com:BU-ISCIII/coding_documentation.git
+git clone git@github.com:BU-ISCIII/dotfiles.git
 # Init and update submodules
 cd coding_documentation
 git submodule init
